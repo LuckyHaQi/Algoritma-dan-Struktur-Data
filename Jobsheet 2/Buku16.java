@@ -17,4 +17,8 @@ public class Buku16 {
     void gantiHarga (int hrg){
         harga = hrg;
     }
+    void stokKosong (int jml){
+        if(stok == 0)
+            System.out.println("Stok kosong");
+    }
 }

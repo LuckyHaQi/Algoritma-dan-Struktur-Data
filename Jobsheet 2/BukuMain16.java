@@ -9,6 +9,7 @@ public class BukuMain16{
     bk1.halaman = 198;
     bk1.stok = 13;
     bk1.harga = 71000;
+
     if (bk1.stok > 0) {
         bk1.tampilInformasi();
         bk1.terjual(5);
@@ -17,6 +18,10 @@ public class BukuMain16{
         bk1.stokKosong(0);
     }
     else
-    System.out.println("Invalid.");
+    System.out.println("Invalid");
+    
+    Buku16 bk2 = new Buku16("Self Reward", "Maheera Ayesha", 160, 29, 59000);
+    bk2.terjual(5);
+    bk2.tampilInformasi();
     }
 }

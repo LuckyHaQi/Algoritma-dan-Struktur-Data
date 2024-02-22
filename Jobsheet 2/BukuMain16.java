@@ -23,6 +23,9 @@ public class BukuMain16{
     Buku16 bk2 = new Buku16("Self Reward", "Maheera Ayesha", 160, 29, 59000);
     bk2.terjual(5);
     bk2.tampilInformasi();
+    bk2.hitungHargaTotal(5);
+    bk2.hitungDiskon();
+    bk2.hitungHargaBayar();
 
     Buku16 bukuLuqman = new Buku16("Hujan Bulan Juni", "Sapardi Djoko Damono", 135, 5, 100000);
         bukuLuqman.tampilInformasi();

@@ -11,15 +11,28 @@ public class DataMahasiswaMain16 {
             mhs[i].nama = sc.next();
             sc.nextLine();
             System.out.print("Masukkan NIM\t: ");
-            mhs[i].nim = sc.nextInt();
+            mhs[i].nim = sc.nextLong();
             System.out.print("Jenis kelamin\t: ");
             mhs[i].kelamin = sc.next().charAt(0);
             System.out.print("Masukkan IPK\t: ");
             mhs[i].ipk = sc.nextFloat();
         }
         System.out.println("_____________________________");
+        System.out.println("\n=============================");
+
         for (int i = 0; i < mhs.length; i++) {
             mhs[i].tampilInformasi();
         }
+
+        System.out.println("\n=============================");
+
+        float Rata2 = DataMahasiswa16.hitungRataRataIPK(mhs);
+        System.out.println("\nRata-rata\t: " + Rata2);
+
+        System.out.println("\n=============================");
+
+        DataMahasiswa16 mhsTerbaik = DataMahasiswa16.mhsIpkTertinggi(mhs);
+        System.out.println("Mahasiswa dengan Nilai IPK Tertinggi.");
+        mhsTerbaik.tampilInformasi();
     }
 }

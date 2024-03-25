@@ -17,7 +17,7 @@ public class Main {
         list.tampil();
 
         System.out.println("\nData mahasiswa setelah sorting desc berdasarakan ipk =");
-        list.selectionSort();
+        list.insertionSort();
         list.tampil();
     }
 }

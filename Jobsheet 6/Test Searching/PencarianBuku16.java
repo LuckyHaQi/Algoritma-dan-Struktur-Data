@@ -1,4 +1,4 @@
-public class PencarianBuku16 {
+class PencarianBuku16 {
     Buku16 listBk[] = new Buku16[5];
     int idx;
 
@@ -6,7 +6,7 @@ public class PencarianBuku16 {
         if (idx < listBk.length){
             listBk[idx] = m;
             idx++;
-        }else{
+        } else {
             System.out.println("Data sudah penuh!");
         }
     }
@@ -17,10 +17,10 @@ public class PencarianBuku16 {
         }
     }
 
-    public int FindSeqSearch(int cari){
+    public int FindSeqSearch(String cari){
         int posisi = -1;
         for (int j = 0; j < listBk.length; j++){
-            if (listBk[j].kodeBuku==cari){
+            if (listBk[j].kodeBuku.equals(cari)){
                 posisi = j;
                 break;
             }
@@ -28,38 +28,50 @@ public class PencarianBuku16 {
         return posisi;
     }
 
-    public void tampilPosisi(int x, int pos){
-        if (pos!= -1){
-            System.out.println("Data: " + x + " ditemukan pada indeks " + pos);
-        }else{
-            System.out.println("Data " + x + " tidak ditemukan");
+    public void tampilPosisi(String cari, int pos){
+        if (pos!= -1 && pos < listBk.length){
+            System.out.println("Data: " + cari + " ditemukan pada indeks " + pos);
+        } else {
+            System.out.println("Data " + cari + " tidak ditemukan");
         }
     }
-    
-    public void tampilData (int x, int pos){
+
+    public void tampilData(String cari, int pos){
         if (pos!= -1) {
-            System.out.println("Kode Buku\t : " + x);
+            System.out.println("Kode Buku\t : " + cari);
             System.out.println("Judul\t\t : "+ listBk[pos].judulBuku) ;
             System.out.println("Tahun Terbit\t : "+ listBk[pos].tahunTerbit);
             System.out.println("Pengarang\t : "+ listBk [pos].pengarang) ;
             System.out.println("Stock\t\t : "+ listBk[pos].stock);
         } else {
-            System.out.println("Data " + x + " tidak ditemukan");
+            System.out.println("Data " + cari + " tidak ditemukan");
         }
     }
 
-    public int FindBinarySearch(int cari, int left, int right) {
+    public int FindBinarySearch(String cari, int left, int right) {
         int mid;
-        if(left > right) {
-            return -1;
+        while (left <= right) {
+            mid = left + (right - left) / 2;
+            int compareResult = cari.compareTo(listBk[mid].kodeBuku);
+            if (compareResult == 0) {
+                return mid;
+            } else if (compareResult < 0) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
         }
-        mid = (left + right) / 2;
-        if (cari == listBk[mid].kodeBuku) {
-            return (mid);
-          } else if (listBk[mid].kodeBuku > cari) {
-            return FindBinarySearch(cari, mid + 1, right);
-          } else {
-            return FindBinarySearch(cari, left, mid - 1);
-          }
+        return -1;
     }
+    void sorting() {
+        for (int i = 0; i < idx - 1; i++) {
+            for (int j = 0; j < idx - i - 1; j++) {
+                if (listBk[j].judulBuku.compareToIgnoreCase(listBk[j + 1].judulBuku) > 0) {
+                    Buku16 temp = listBk[j];
+                    listBk[j] = listBk[j + 1];
+                    listBk[j + 1] = temp;
+                }
+            }
+        }
+    }    
 }

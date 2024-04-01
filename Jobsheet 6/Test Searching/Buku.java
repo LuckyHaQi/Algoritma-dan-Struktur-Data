@@ -1,11 +1,11 @@
-class Buku16{
-    int kodeBuku;
+class Buku16 {
+    String kodeBuku;
     String judulBuku;
     int tahunTerbit;
     String pengarang;
     int stock;
 
-    public Buku16(int kodeBuku, String judulBuku,int tahunTerbit, String pengarang, int stock){
+    public Buku16(String kodeBuku, String judulBuku, int tahunTerbit, String pengarang, int stock) {
         this.kodeBuku = kodeBuku;
         this.judulBuku = judulBuku;
         this.tahunTerbit = tahunTerbit;
@@ -13,7 +13,7 @@ class Buku16{
         this.stock = stock;
     }
 
-    public void tampilDataBuku(){
+    public void tampilDataBuku() {
         System.out.println("-======================-");
         System.out.println("Kode buku\t: " + kodeBuku);
         System.out.println("Judul buku\t: " + judulBuku);

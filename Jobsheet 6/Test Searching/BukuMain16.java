@@ -38,6 +38,14 @@ public class BukuMain16 {
         int posisi = data.FindSeqSearch(cari);
         data.tampilPosisi(cari, posisi);
         data.tampilData(cari, posisi);
+
+        Buku16 dataBuku16 = data.findBuku(cari);
+        if (dataBuku16 != null) {
+            System.out.println("Data buku ditemukan:");
+            dataBuku16.tampilDataBuku();
+        }else{
+            System.out.println("Buku dengan kode " + cari + " tidak ditemukan!");
+        }
         
         s.close();
         s1.close();

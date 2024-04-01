@@ -33,20 +33,26 @@ public class BukuMain16 {
         System.out.println("Pencarian data: ");
         System.out.println("Masukkan kode buku yang dicari: ");
         System.out.print("Kode buku: ");
-        int cari = s.nextInt();
-        System.out.println("Menggunakan sequential Search");
-        int posisi = data.FindSeqSearch(cari);
-        data.tampilPosisi(cari, posisi);
-        data.tampilData(cari, posisi);
-
-        Buku16 dataBuku16 = data.findBuku(cari);
-        if (dataBuku16 != null) {
-            System.out.println("Data buku ditemukan:");
-            dataBuku16.tampilDataBuku();
-        }else{
-            System.out.println("Buku dengan kode " + cari + " tidak ditemukan!");
-        }
-        
+        int cari;
+        do {
+            System.out.print("Kode Buku: ");
+            cari = s.nextInt();
+      
+            if (cari != -1) {
+              System.out.println("==============================");
+              System.out.println("Menggunakan sequential Search");
+              int posisi = data.FindSeqSearch(cari);
+              data.tampilPosisi(cari, posisi);
+              data.tampilData(cari, posisi);
+      
+              System.out.println("==============================");
+              System.out.println("menggunakan binary Search");
+              posisi = data.FindBinarySearch(cari, 0, jumBuku - 1);
+              data.tampilPosisi(cari, posisi);
+              data.tampilData(cari, posisi);
+            }
+          } while (cari != -1);
+      
         s.close();
         s1.close();
     }

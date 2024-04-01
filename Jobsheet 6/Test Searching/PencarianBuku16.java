@@ -47,12 +47,19 @@ public class PencarianBuku16 {
             System.out.println("Data " + x + " tidak ditemukan");
         }
     }
-    public Buku16 findBuku(int cari) {
-        for (int i = 0; i < listBk.length; i++) {
-            if (listBk[i].kodeBuku == cari) {
-                return listBk[i];
-            }
+
+    public int FindBinarySearch(int cari, int left, int right) {
+        int mid;
+        if(left > right) {
+            return -1;
         }
-        return null;
+        mid = (left + right) / 2;
+        if (cari == listBk[mid].kodeBuku) {
+            return (mid);
+          } else if (listBk[mid].kodeBuku > cari) {
+            return FindBinarySearch(cari, mid + 1, right);
+          } else {
+            return FindBinarySearch(cari, left, mid - 1);
+          }
     }
 }

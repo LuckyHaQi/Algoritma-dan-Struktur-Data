@@ -3,7 +3,7 @@ public class Utama16 {
     public static void main(String[] args) {
         Gudang16 gudang = new Gudang16(7);
         Scanner scanner = new Scanner(System.in);
-        while (true) {/
+        while (true) {
             System.out.println("\nMenu");
             System.out.println("1. Tambah barang");
             System.out.println("2. Ambil barang");

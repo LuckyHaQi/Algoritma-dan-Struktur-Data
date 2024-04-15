@@ -25,11 +25,11 @@ public class Gudang16 {
         }
     }
 
-    public void tambahBarang(Barang16 brg) {
+    public void tambahBarang(Barang16 barang) {
         if (!cekPenuh()) {
             top++;
-            tumpukan[top] = brg;
-            System.out.println("Barang " + brg.nama + " berhasil ditambahkan ke gudang");
+            tumpukan[top] = barang;
+            System.out.println("Barang " + barang.nama + " berhasil ditambahkan ke gudang");
         } else {
             System.out.println("Gagal! Tumpukan barang di gudang sudah penuh");
         }
@@ -39,7 +39,7 @@ public class Gudang16 {
         if (!cekKosong()) {
             Barang16 delete = tumpukan[top];
             top--;
-            System.out.println("Barang " + delete.nama + " diambil dari Gudang.");
+            System.out.println("Barang "+ delete.nama + " diambil dari Gudang.");
             System.out.println("Kode unik dalam biner: " + konversiDesimalKeBiner(delete.kode));
             return delete;
         } else {
@@ -59,11 +59,38 @@ public class Gudang16 {
         }
     }
 
+    public Barang16 cariBarang(String search) {
+        if (!cekKosong()) {
+            for (int i = top; i >= 0; i--) {
+                Barang16 barang = tumpukan[i];
+                if (barang.nama.equalsIgnoreCase(search) || String.valueOf(barang.kode).equals(search)) {
+                    System.out.printf("Barang ditemukan: %s (Kode: %d, Kategori: %s)\n", barang.nama, barang.kode, barang.kategori);
+                    return barang;
+                }
+            }
+            System.out.println("Barang tidak ditemukan.");
+            return null;
+        } else {
+            System.out.println("Tumpukan barang kosong");
+            return null;
+        }
+    }
+
+    public Barang16 lihatBarangTerbawah() {
+        if (!cekKosong()) {
+            Barang16 barangTerbawah = tumpukan[0];
+            System.out.println("Barang terbawah: " + barangTerbawah.nama);
+            return barangTerbawah;
+        } else {
+            System.out.println("Tumpukan barang kosong");
+            return null;
+        }
+    }
+    
     public void tampilkanBarang() {
         if (!cekKosong()) {
             System.out.println("Rincian tumpukan barang di gudang");
             for (int i = top; i >= 0; i--) {
-                //for (int i = 0; i <= top; i++) {
                 System.out.printf("kode %d: %s (Kategori %s)\n", tumpukan[i].kode, tumpukan[i].nama, tumpukan[i].kategori);
             }
         } else {

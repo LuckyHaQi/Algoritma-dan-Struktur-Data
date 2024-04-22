@@ -1,4 +1,4 @@
-public class Main {
+public class MahasiswaMain {
     public static void main(String[] args) {
         DaftarMahasiswaBerprestasi list = new DaftarMahasiswaBerprestasi();
         Mahasiswa m1 = new Mahasiswa("Nusa", 2017, 25, 3);

@@ -1,8 +1,8 @@
 class PencarianBuku16 {
-    Buku16 listBk[] = new Buku16[5];
+    Buku16x listBk[] = new Buku16x[5];
     int idx;
 
-    void tambah(Buku16 m){
+    void tambah(Buku16x m){
         if (idx < listBk.length){
             listBk[idx] = m;
             idx++;
@@ -12,7 +12,7 @@ class PencarianBuku16 {
     }
 
     void tampil(){
-        for (Buku16 m : listBk){
+        for (Buku16x m : listBk){
             m.tampilDataBuku();
         }
     }
@@ -67,7 +67,7 @@ class PencarianBuku16 {
         for (int i = 0; i < idx - 1; i++) {
             for (int j = 0; j < idx - i - 1; j++) {
                 if (listBk[j].judulBuku.compareToIgnoreCase(listBk[j + 1].judulBuku) > 0) {
-                    Buku16 temp = listBk[j];
+                    Buku16x temp = listBk[j];
                     listBk[j] = listBk[j + 1];
                     listBk[j + 1] = temp;
                 }

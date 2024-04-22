@@ -1,11 +1,11 @@
-class Buku16 {
+class Buku16x {
     String kodeBuku;
     String judulBuku;
     int tahunTerbit;
     String pengarang;
     int stock;
 
-    public Buku16(String kodeBuku, String judulBuku, int tahunTerbit, String pengarang, int stock) {
+    public Buku16x(String kodeBuku, String judulBuku, int tahunTerbit, String pengarang, int stock) {
         this.kodeBuku = kodeBuku;
         this.judulBuku = judulBuku;
         this.tahunTerbit = tahunTerbit;

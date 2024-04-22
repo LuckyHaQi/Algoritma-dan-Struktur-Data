@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class BukuMain16 {
+public class BukuMain16x {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         Scanner s1 = new Scanner(System.in);
@@ -20,7 +20,7 @@ public class BukuMain16 {
             System.out.print("Stock\t\t: ");
             int stock = s.nextInt();
 
-            Buku16 m = new Buku16(kodeBuku, judulBuku, tahunTerbit, pengarang, stock);
+            Buku16x m = new Buku16x(kodeBuku, judulBuku, tahunTerbit, pengarang, stock);
             data.tambah(m);
         }
         System.out.println("=------------------------------------------------------=");

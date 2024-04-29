@@ -40,8 +40,11 @@ public class NasabahMain {
                 case 4:
                     antri.print();
                     break;
+                case 5:
+                    antri.peekRear();
+                    break;
             }
-        } while (pilih == 1 || pilih == 2 || pilih == 3 || pilih == 4);
+        } while (pilih == 1 || pilih == 2 || pilih == 3 || pilih == 4 || pilih == 5);
         
     }
 }

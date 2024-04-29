@@ -47,6 +47,14 @@ public class Nasabah {
             System.out.println("Antrian masih kosong");
         }
     }
+    public void peekRear() {
+        if (!IsEmpty()) {
+            System.out.println("Antrian terbelakang: " + data[rear].norek + " " + data[rear].nama
+                    + " " + data[rear].alamat + " " + data[rear].umur + " " + data[rear].saldo);
+        } else {
+            System.out.println("Antrian masih kosong");
+        }
+    }
     public void print(){
         if (IsEmpty()) {
             System.out.println("Antrian masih kosong");
@@ -117,6 +125,7 @@ public class Nasabah {
         System.out.println("2. Antrian keluar");
         System.out.println("3. Cek Antrian terdepan");
         System.out.println("4. Cek Semua Antrian");
+        System.out.println("5. Cek Antrian terbelakang");
         System.out.println("------------------------");
     }
 }

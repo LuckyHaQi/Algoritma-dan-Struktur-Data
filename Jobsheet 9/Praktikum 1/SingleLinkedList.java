@@ -82,7 +82,7 @@ public class SingleLinkedList {
 
     int getData(int index){
         Node tmp = head;
-        for(int i = 0; i < index + 1; i++){
+        for(int i = 0; i < index - 1; i++){
             tmp = tmp.next;
         }
         return tmp.next.data;
@@ -95,7 +95,7 @@ public class SingleLinkedList {
             tmp = tmp.next;
             index++;
         }
-        if (tmp != null) {
+        if (tmp == null) {
             return 1;
         }else{
             return index;

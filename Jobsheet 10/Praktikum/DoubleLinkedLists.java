@@ -1,5 +1,4 @@
 package Praktikum;
-
 public class DoubleLinkedLists {
     Node head;
     int size;
@@ -86,5 +85,4 @@ public class DoubleLinkedLists {
             System.out.println("Linked list kosong.");
         }
     }
-    
 }

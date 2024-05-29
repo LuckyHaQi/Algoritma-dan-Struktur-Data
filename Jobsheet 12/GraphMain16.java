@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class GraphMain16 {
     public static void main(String[] args) throws Exception {
         Graph16 gedung = new Graph16(6);
@@ -7,9 +8,21 @@ public class GraphMain16 {
         gedung.addEdge(2, 3, 40);
         gedung.addEdge(3, 3, 60);
         gedung.addEdge(4, 5, 80);
-        gedung.degree(0);
-        gedung.printGraph();
-        gedung.removeEdge(1, 3);
-        gedung.printGraph();
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan gedung asal: ");
+        int asal = scanner.nextInt();
+
+        System.out.print("Masukkan gedung tujuan: ");
+        int tujuan = scanner.nextInt();
+
+        if (gedung.hasEdge(asal, tujuan)) {
+            System.out.println("Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan) + " bertetangga");
+        } else {
+            System.out.println("Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan) + " tidak bertetangga");
+        }
+
+        scanner.close();
     }
 }

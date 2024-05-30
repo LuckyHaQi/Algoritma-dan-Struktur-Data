@@ -35,6 +35,10 @@ public class GraphMain16 {
         gdg.removeEdge(2, 1);
         gdg.printGraph();
 
+        System.out.print("Masukkan gedung asal untuk menghitung degree: ");
+        int asal = scanner.nextInt();
+        gdg.degree(asal);
+
         scanner.close();
     }
 }

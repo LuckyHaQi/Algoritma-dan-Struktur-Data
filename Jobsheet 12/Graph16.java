@@ -72,4 +72,12 @@ public class Graph16 {
     public void updateJarak(int asal, int tujuan, int newJarak) throws Exception {
         list[asal].updateJarak(tujuan, newJarak);
     }
+
+    public int hitungEdge() {
+        int hitung = 0;
+        for (int i = 0; i < vertex; i++) {
+            hitung += list[i].size();
+        }
+        return hitung;
+    }
 }

@@ -10,13 +10,14 @@ public class GraphMain16 {
         boolean running = true;
         while (running) {
             System.out.println("Menu:");
-            System.out.println("1. Add Edge");
-            System.out.println("2. Remove Edge");
+            System.out.println("1. Tambah Edge");
+            System.out.println("2. Hapus Edge");
             System.out.println("3. Degree");
             System.out.println("4. Print Graph");
             System.out.println("5. Cek Edge");
             System.out.println("6. Update Jarak");
-            System.out.println("7. Exit");
+            System.out.println("7. Hitung Edge");
+            System.out.println("8. Exit");
             System.out.print("Pilih menu: ");
             int choice = scanner.nextInt();
 
@@ -69,12 +70,12 @@ public class GraphMain16 {
                     }
                     break;
                 case 6:
-                    System.out.print("Masukkan gedung asal: ");
+                    System.out.print("Masukkan gedung asal   : ");
                     asal = scanner.nextInt();
-                    System.out.print("Masukkan gedung tujuan: ");
+                    System.out.print("Masukkan gedung tujuan : ");
                     tujuan = scanner.nextInt();
                     if (asal != tujuan) {
-                        System.out.print("Masukkan jarak baru: ");
+                        System.out.print("Masukkan jarak baru    : ");
                         int newJarak = scanner.nextInt();
                         graph.updateJarak(asal, tujuan, newJarak);
                     } else {
@@ -82,6 +83,10 @@ public class GraphMain16 {
                     }
                     break;
                 case 7:
+                    int edgeCount = graph.hitungEdge();
+                    System.out.println("Jumlah edge dalam graf: " + edgeCount);
+                    break;
+                case 8:
                     running = false;
                     break;
                 default:

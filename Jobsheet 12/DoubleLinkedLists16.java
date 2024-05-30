@@ -172,4 +172,18 @@ public class DoubleLinkedLists16 {
         }
         return tmp.data;
     }
+    public void updateJarak(int data, int newJarak) throws Exception {
+        if (isEmpty()) {
+            throw new Exception("Linked List kosong.");
+        }
+        Node16 tmp = head;
+        while (tmp != null) {
+            if (tmp.data == data) {
+                tmp.jarak = newJarak;
+                return;
+            }
+            tmp = tmp.next;
+        }
+        throw new Exception("Node tidak ditemukan.");
+    }
 }

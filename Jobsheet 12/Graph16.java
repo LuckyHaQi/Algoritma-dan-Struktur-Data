@@ -68,4 +68,8 @@ public class Graph16 {
         }
         System.out.println();
     }
+    
+    public void updateJarak(int asal, int tujuan, int newJarak) throws Exception {
+        list[asal].updateJarak(tujuan, newJarak);
+    }
 }

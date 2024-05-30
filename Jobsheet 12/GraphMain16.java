@@ -5,36 +5,45 @@ public class GraphMain16 {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Masukkan jumlah gedung: ");
         int v = scanner.nextInt();
-        GraphMatriks16 graph = new GraphMatriks16(v);
+        Graph16 graph = new Graph16(v);
 
         boolean running = true;
         while (running) {
             System.out.println("Menu:");
-            System.out.println("1. Add");
-            System.out.println("2. Remove ");
+            System.out.println("1. Add Edge");
+            System.out.println("2. Remove Edge");
             System.out.println("3. Degree");
-            System.out.println("4. Print");
-            System.out.println("5. Cek");
-            System.out.println("6. Exit");
+            System.out.println("4. Print Graph");
+            System.out.println("5. Cek Edge");
+            System.out.println("6. Update Jarak");
+            System.out.println("7. Exit");
             System.out.print("Pilih menu: ");
-            int pilih = scanner.nextInt();
+            int choice = scanner.nextInt();
 
-            switch (pilih) {
+            switch (choice) {
                 case 1:
                     System.out.print("Masukkan gedung asal: ");
                     int asal = scanner.nextInt();
                     System.out.print("Masukkan gedung tujuan: ");
                     int tujuan = scanner.nextInt();
-                    System.out.print("Masukkan jarak: ");
+                    if (asal != tujuan) {
+                        System.out.print("Masukkan jarak: ");
                     int jarak = scanner.nextInt();
-                    graph.makeEdge(asal, tujuan, jarak);
+                    graph.addEdge(asal, tujuan, jarak);
+                    } else {
+                        System.out.println("Gedung tersebut sama");
+                    }
                     break;
                 case 2:
                     System.out.print("Masukkan gedung asal: ");
                     asal = scanner.nextInt();
                     System.out.print("Masukkan gedung tujuan: ");
                     tujuan = scanner.nextInt();
-                    graph.removeEdge(asal, tujuan);
+                    if (asal != tujuan) {
+                        graph.removeEdge(asal, tujuan);
+                    } else {
+                        System.out.println("Gedung tersebut sama");
+                    }
                     break;
                 case 3:
                     System.out.print("Masukkan gedung untuk menghitung degree: ");
@@ -49,10 +58,10 @@ public class GraphMain16 {
                     asal = scanner.nextInt();
                     System.out.print("Masukkan gedung tujuan: ");
                     tujuan = scanner.nextInt();
-                    if (graph.matriks[asal] == graph.matriks[tujuan]) {
+                    if (asal == tujuan) {
                         System.out.println("Gedung tersebut sama");
                     } else {
-                        if (graph.matriks[asal][tujuan] != 0) {
+                        if (graph.hasEdge(asal, tujuan)) {
                             System.out.println("Gedung " + (char) ('A' + asal) + " terhubung dengan gedung " + (char) ('A' + tujuan));
                         } else {
                             System.out.println("Gedung " + (char) ('A' + asal) + " tidak terhubung dengan gedung " + (char) ('A' + tujuan));
@@ -60,6 +69,19 @@ public class GraphMain16 {
                     }
                     break;
                 case 6:
+                    System.out.print("Masukkan gedung asal: ");
+                    asal = scanner.nextInt();
+                    System.out.print("Masukkan gedung tujuan: ");
+                    tujuan = scanner.nextInt();
+                    if (asal != tujuan) {
+                        System.out.print("Masukkan jarak baru: ");
+                        int newJarak = scanner.nextInt();
+                        graph.updateJarak(asal, tujuan, newJarak);
+                    } else {
+                        System.out.println("Gedung tersebut sama");
+                    }
+                    break;
+                case 7:
                     running = false;
                     break;
                 default:

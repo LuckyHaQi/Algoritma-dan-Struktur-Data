@@ -1,43 +1,72 @@
 import java.util.Scanner;
+
 public class GraphMain16 {
     public static void main(String[] args) throws Exception {
-        // Graph16 gedung = new Graph16(6);
-        // gedung.addEdge(0, 1, 50);
-        // gedung.addEdge(0, 2, 100);
-        // gedung.addEdge(1, 3, 70);
-        // gedung.addEdge(2, 3, 40);
-        // gedung.addEdge(3, 3, 60);
-        // gedung.addEdge(4, 5, 80);
-
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Masukkan jumlah gedung: ");
+        int v = scanner.nextInt();
+        GraphMatriks16 graph = new GraphMatriks16(v);
 
-        // System.out.print("Masukkan gedung asal: ");
-        // int asal = scanner.nextInt();
+        boolean running = true;
+        while (running) {
+            System.out.println("Menu:");
+            System.out.println("1. Add");
+            System.out.println("2. Remove ");
+            System.out.println("3. Degree");
+            System.out.println("4. Print");
+            System.out.println("5. Cek");
+            System.out.println("6. Exit");
+            System.out.print("Pilih menu: ");
+            int pilih = scanner.nextInt();
 
-        // System.out.print("Masukkan gedung tujuan: ");
-        // int tujuan = scanner.nextInt();
-
-        // if (gedung.hasEdge(asal, tujuan)) {
-        //     System.out.println("Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan) + " bertetangga");
-        // } else {
-        //     System.out.println("Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan) + " tidak bertetangga");
-        // }
-
-        GraphMatriks16 gdg = new GraphMatriks16(4);
-        gdg.makeEdge(0, 1, 50);
-        gdg.makeEdge(1, 0, 60);
-        gdg.makeEdge(1, 2, 70);
-        gdg.makeEdge(2, 1, 80);
-        gdg.makeEdge(2, 3, 40);
-        gdg.makeEdge(3, 0, 90);
-        gdg.printGraph();
-        System.out.println("Hasil setelah penghapusan edge");
-        gdg.removeEdge(2, 1);
-        gdg.printGraph();
-
-        System.out.print("Masukkan gedung asal untuk menghitung degree: ");
-        int asal = scanner.nextInt();
-        gdg.degree(asal);
+            switch (pilih) {
+                case 1:
+                    System.out.print("Masukkan gedung asal: ");
+                    int asal = scanner.nextInt();
+                    System.out.print("Masukkan gedung tujuan: ");
+                    int tujuan = scanner.nextInt();
+                    System.out.print("Masukkan jarak: ");
+                    int jarak = scanner.nextInt();
+                    graph.makeEdge(asal, tujuan, jarak);
+                    break;
+                case 2:
+                    System.out.print("Masukkan gedung asal: ");
+                    asal = scanner.nextInt();
+                    System.out.print("Masukkan gedung tujuan: ");
+                    tujuan = scanner.nextInt();
+                    graph.removeEdge(asal, tujuan);
+                    break;
+                case 3:
+                    System.out.print("Masukkan gedung untuk menghitung degree: ");
+                    asal = scanner.nextInt();
+                    graph.degree(asal);
+                    break;
+                case 4:
+                    graph.printGraph();
+                    break;
+                case 5:
+                    System.out.print("Masukkan gedung asal: ");
+                    asal = scanner.nextInt();
+                    System.out.print("Masukkan gedung tujuan: ");
+                    tujuan = scanner.nextInt();
+                    if (graph.matriks[asal] == graph.matriks[tujuan]) {
+                        System.out.println("Gedung tersebut sama");
+                    } else {
+                        if (graph.matriks[asal][tujuan] != 0) {
+                            System.out.println("Gedung " + (char) ('A' + asal) + " terhubung dengan gedung " + (char) ('A' + tujuan));
+                        } else {
+                            System.out.println("Gedung " + (char) ('A' + asal) + " tidak terhubung dengan gedung " + (char) ('A' + tujuan));
+                        }
+                    }
+                    break;
+                case 6:
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid. Silakan pilih lagi.");
+                    break;
+            }
+        }
 
         scanner.close();
     }

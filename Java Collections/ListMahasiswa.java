@@ -25,12 +25,20 @@ public class ListMahasiswa {
         });
     }
 
-int binarySearch(String nim) {
-    Collections.sort(mahasiswas, Comparator.comparing(m -> m.nim));
-    int index = Collections.binarySearch(mahasiswas, new Mahasiswa(nim, null, null), Comparator.comparing(m -> m.nim));
-    return index;
-}
+    int binarySearch(String nim) {
+        Collections.sort(mahasiswas, Comparator.comparing(m -> m.nim));
+        int index = Collections.binarySearch(mahasiswas, new Mahasiswa(nim, null, null), Comparator.comparing(m -> m.nim));
+        return index;
+    }
 
+    public void sortAscending() {
+        Collections.sort(mahasiswas, (m1, m2) -> m1.nim.compareTo(m2.nim));
+        }
+        
+        public void sortDescending() {
+        Collections.sort(mahasiswas, (m1, m2) -> m2.nim.compareTo(m1.nim));
+        }
+    
     public static void main(String[] args) {
         ListMahasiswa lm = new ListMahasiswa();
         Mahasiswa m = new Mahasiswa("201234", "Noureen", "021xx1");
@@ -40,6 +48,12 @@ int binarySearch(String nim) {
         lm.tampil();
         lm.update(lm.binarySearch("201235"), new Mahasiswa("201235", "Akhleema Lela", "021xx2"));
         System.out.println("");
+        lm.tampil();
+        lm.sortAscending();
+        System.out.println("\nSorted Ascending:");
+        lm.tampil();
+        lm.sortDescending();
+        System.out.println("\nSorted Descending:");
         lm.tampil();
     }
 }

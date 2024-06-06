@@ -9,6 +9,10 @@ public class LoopCollection {
         fruits.add("Watermelon");
         fruits.add("Leci");
         fruits.add("Salak");
+        fruits.add("Mango");
+        fruits.add("Guava");
+        fruits.add("Avocado");
+        fruits.sort(String::compareTo);
 
         for (String fruit : fruits){
             System.out.printf("%s ", fruit);
@@ -21,19 +25,19 @@ public class LoopCollection {
         }
 
         fruits.push("Melon");
-        fruits.push("Durian");
+        fruits.push("Strawberry");
         System.out.println("");
         for (Iterator<String> it = fruits.iterator(); it.hasNext();) {
             String fruit = it.next();
-            System.out.printf("%s", fruit);
+            System.out.printf("%s ", fruit);
         }
         System.out.println("");
         fruits.stream().forEach(e -> {
-            System.out.printf("%s", e);
+            System.out.printf("%s ", e);
         });
         System.out.println("");
         for(int i = 0; i < fruits.size(); i++){
-            System.out.printf("%s", fruits.get(i));
+            System.out.printf("%s ", fruits.get(i));
         }
     }
 }
